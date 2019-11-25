@@ -1,0 +1,31 @@
+2019-09-27 11:28:11.956 [main] INFO  com.dome.pachong.infokafka.CrawlerApplication - Starting CrawlerApplication on WINDOWS-M7RN88M with PID 9896 (C:\Users\EDZ\Desktop\reptile\target\classes started by EDZ in C:\Users\EDZ\Desktop\reptile)
+2019-09-27 11:28:11.959 [main] INFO  com.dome.pachong.infokafka.CrawlerApplication - No active profile set, falling back to default profiles: default
+2019-09-27 11:28:12.422 [main] WARN  o.s.c.a.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: org.springframework.beans.factory.aspectj.AnnotationBeanConfigurerAspect not found. 
+Could not configure Spring Data JPA auditing-feature because spring-aspects.jar is not on the classpath!
+If you want to use auditing please add spring-aspects.jar to the classpath.
+2019-09-27 11:28:12.431 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-09-27 11:28:12.444 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: org.springframework.beans.factory.aspectj.AnnotationBeanConfigurerAspect not found. 
+Could not configure Spring Data JPA auditing-feature because spring-aspects.jar is not on the classpath!
+If you want to use auditing please add spring-aspects.jar to the classpath.
+	at org.springframework.data.jpa.repository.config.JpaAuditingRegistrar.registerBeanConfigurerAspectIfNecessary(JpaAuditingRegistrar.java:124)
+	at org.springframework.data.jpa.repository.config.JpaAuditingRegistrar.registerBeanDefinitions(JpaAuditingRegistrar.java:88)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.lambda$loadBeanDefinitionsFromRegistrars$1(ConfigurationClassBeanDefinitionReader.java:364)
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsFromRegistrars(ConfigurationClassBeanDefinitionReader.java:363)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:145)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:117)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:327)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:705)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:531)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204)
+	at com.dome.pachong.infokafka.CrawlerApplication.main(CrawlerApplication.java:14)

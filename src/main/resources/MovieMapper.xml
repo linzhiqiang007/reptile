@@ -1,0 +1,32 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dome.pachong.mapper.MovieMapper">
+
+    <resultMap id="MovieMapperMap" type="com.dome.pachong.movel.Movie">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <id column="title" property="title" jdbcType="VARCHAR"/>
+        <id column="cover" property="cover" jdbcType="VARCHAR"/>
+        <id column="rate" property="rate" jdbcType="VARCHAR"/>
+        <id column="casts" property="casts" jdbcType="VARCHAR"/>
+        <id column="directors" property="directors" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <insert id="insert" parameterType="com.dome.pachong.movel.Movie">
+        INSERT INTO movie(id,title,cover,rate,casts,directors)
+        VALUES(#{id},#{title},#{cover},#{rate},#{casts},#{directors})
+    </insert>
+
+    <select id="findAll" resultMap="MovieMapperMap">
+        SELECT * FROM movie
+    </select>
+
+    <select id="findByid" parameterType="java.lang.String" resultType="java.lang.Long">
+        select count(1) as status from movie where id = #{id}
+    </select>
+
+    <update id="update" parameterType="com.dome.pachong.movel.Movie">
+        update movie set id = #{id},title=#{title},cover = #{cover},rate = #{rate},casts = #{casts},directors=#{directors}
+    </update>
+</mapper>

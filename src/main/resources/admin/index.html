@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>首页测试</title>
+</head>
+<body>
+
+    <div>
+        <input class="text" id="find_text" style="height: 16px;width: 100px;padding-right: 10px"/><button onclick="Test()">确定</button>
+    </div>
+
+    <script type="text/javascript">
+        function Test() {
+            var find_text = document.getElementById("find_text").value;
+            if (find_text == "" || find_text == null || find_text == undefined) {
+                alert("文本内容不能为空！")
+            }
+            leftmenu()
+        }
+    </script>
+
+    <script>
+
+        function leftmenu(parentid, parentpath,moduleindex,path){
+            var leftcontent="";
+            $.ajax({
+                type: "POST",
+                url : "<%=path%>/resource/'"+path+"'",
+                data : {parentid:parentid,parentpath:parentpath},
+                success : function(data){
+                    // 处理head menu是否有页面要打开
+                    leftcontent= template('_menu2tmpl',data);
+                    $('.nav').html(leftcontent);
+                    addclick();
+                    //临时点击显示菜单
+                    if($('.index-left-warp').width()==0){
+                        $(".index-left-show").hide();
+                        $(".index-left-warp").animate({width:"200px"},250);
+                        timer=setTimeout(function(){
+                            tabsResize();
+                        },500);
+                    };
+
+                    $(".nav").accordion({
+                        //accordion: true,
+                        speed: 500,
+                        closedSign: '<img src="<%=path%>/images/menu_close.png"/>',
+                        openedSign: '<img src="<%=path%>/images/menu_open.png"/>'
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
